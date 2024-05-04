@@ -12,6 +12,7 @@ public class Server {
             e.printStackTrace();
         }
         try {
+            //hellllloooo
             RemoteInterface obj = new RemoteObject();
             Naming.rebind("//localhost/RemoteObject", obj);
         } catch (Exception e) {
