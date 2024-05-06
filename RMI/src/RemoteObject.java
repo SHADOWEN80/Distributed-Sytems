@@ -6,12 +6,38 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
+import com.github.sarxos.webcam.Webcam;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class RemoteObject extends UnicastRemoteObject implements RemoteInterface {
     protected RemoteObject() throws RemoteException {
         super();
     }
 
+    @Override
+
+    public BufferedImage requestCameraCapture() throws RemoteException {
+        Webcam webcam = Webcam.getDefault();
+        if (webcam != null) {
+            System.out.println("Webcam: " + webcam.getName());
+
+            // Open the webcam and capture an image
+            webcam.open();
+           BufferedImage capture= webcam.getImage();
+            webcam.close();
+            return capture;
+        }
+        return null;
+    }
+    @Override
+    public byte[] requestCameraCaptureData() throws RemoteException {
+        BufferedImage image=requestCameraCapture();
+        return convertImageToByteArray(image);
+
+    }
     @Override
     public BufferedImage requestScreenshot() throws RemoteException {
         try {
