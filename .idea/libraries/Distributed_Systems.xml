@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Distributed-Systems">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+      <root url="jar://$PROJECT_DIR$/../jar/webcam/webcam-capture-0.3.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jar/webcam/libs/slf4j-api-1.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jar/webcam/libs/bridj-0.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/RMI/src" />
+      <root url="file://$PROJECT_DIR$/../jar/webcam/src" />
+    </SOURCES>
+  </library>
+</component>
