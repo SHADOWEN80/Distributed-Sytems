@@ -85,6 +85,8 @@ public class ManagerApp {
                                 File outputFile = new File(desktop, "screenshot" + strings.get(x) + LocalTime.now().toString().replace(":", "-") + ".png");
                                 // Write the BufferedImage to the specified file as a PNG
                                 ImageIO.write(screenshot, "png", outputFile);
+                                Desktop desktop1 = Desktop.getDesktop();
+                                desktop1.open(outputFile);
                                 System.out.println("image saved successfully, write anything to continue:");
                                 out.println(scanner.next());
                             } else if (answer.equalsIgnoreCase("cameracapture")) {
@@ -103,9 +105,12 @@ public class ManagerApp {
                                 if (!desktop.exists()) {
                                     desktop.mkdir(); // This will create the NewFolder on the desktop
                                 }
-                                File outputFile = new File(desktop, "cameracapture" + strings.get(x) + LocalTime.now().toString().replace(":", "-") + ".png");
+                                String filePath="cameracapture" + strings.get(x) + LocalTime.now().toString().replace(":", "-");
+                                File outputFile = new File(desktop,filePath + ".png");
                                 // Write the BufferedImage to the specified file as a PNG
                                 ImageIO.write(screenshot, "png", outputFile);
+                                Desktop desktop1 = Desktop.getDesktop();
+                                desktop1.open(outputFile);
                                 System.out.println("image saved successfully, write anything to continue:");
                                 out.println(scanner.next());
 
